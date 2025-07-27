@@ -1,10 +1,5 @@
 # VOICE_MINUTES
 🚀 Voice-to-Text Meeting Minutes Generator: An end-to-end pipeline that converts meeting audio into clean transcripts and concise summaries using AWS (S3, Lambda, Transcribe) and NLP (TextRank). View ,download reports via a Flask dashboard. Fast, accurate, and fully automated meeting documentation!
-
-# 🎤 Voice-to-Text Meeting Minutes Generator 📝
-
-> **An end-to-end Python + AWS-based project that automatically converts meeting audio into clean transcripts and concise summaries, all accessible via a user-friendly dashboard.**
-
 ---
 
 ## 🔰 Project Overview

@@ -1,0 +1,11 @@
+📋 Summary of meeting:
+- Discussed project roadmap
+- Decided deadlines for modules
+
+Actions:
+- Complete Module 3 by Friday
+- Review Module 5 UI
+
+Metadata:
+Speaker count: 2
+Duration: 3 mins

@@ -1,0 +1,123 @@
+Here’s a concise and user-friendly module-wise breakdown to explain your **Voice-to-Text Meeting Minutes Generator** project during a 30-minute interview:
+
+---
+
+### 🔰 Project Overview (2 mins)
+
+* Goal: Automate meeting minutes generation from audio.
+* Tools: Python, AWS (S3, Lambda, Transcribe), NLP (TextRank), Flask.
+* Key Deliverables: Clean transcript + action-based summary + downloadable reports + dashboard.
+
+---
+
+### 🧩 Module 1: Audio Upload & S3 Integration (3 mins)
+
+* ✅ Built a Python interface (or CLI) to upload `.mp3`/`.mp4` files.
+* ✅ Uploaded audio stored in S3 bucket `audio_upload1`.
+* ✅ Validates audio format and file naming (e.g., test\_audio.mp3).
+* ✅ Stores metadata (filename, timestamp).
+* ✅ Upload status shown to user via console or CLI.
+
+🔧 AWS Used: S3
+📁 Bucket Created: `audio_upload1`
+
+---
+
+### 🧩 Module 2: AWS Transcribe Setup (5 mins)
+
+* ✅ Lambda automatically triggers AWS Transcribe when new audio is uploaded.
+* ✅ Transcribe converts audio to text with speaker labels.
+* ✅ Job monitored by Lambda and result stored in `transcribed_audio2` bucket.
+* ✅ Output format: raw JSON transcript.
+
+🪄 Services Used:
+
+* Lambda (trigger)
+* Amazon Transcribe
+* S3 (`transcribed_audio2`)
+
+---
+
+### 🧩 Module 3: Transcript Post-Processing (5 mins)
+
+* ✅ Input: Raw JSON transcript.
+* ✅ Cleaned filler words (uh, um, like…).
+* ✅ Formatted text into paragraphs and bullet points.
+* ✅ Extracted speaker labels, timestamps if available.
+* ✅ Output saved as both `.json` and `.txt`.
+
+📁 Files:
+
+* `clean_transcript.json`, `clean_transcript.txt`
+* `cleaned_output1.json`, `cleaned_output1.txt` (for 2nd audio)
+
+🧠 NLP Used: NLTK (for tokenizing, sentence segmentation)
+
+---
+
+### 🧩 Module 4: Meeting Summary Generation (6 mins)
+
+* ✅ Used **TextRank** via `sumy` to extract key points.
+* ✅ Generated:
+
+  * Short Summary
+  * Action items (if available)
+  * Metadata (date, duration, speakers)
+* ✅ Output saved as `.txt` (PDF optional, but skipped per project scope)
+
+📁 Files:
+
+* `meeting_summary.txt` ← from `test_audio.mp3`
+* `summary_out1.txt` ← from `test1_audio.mp3`
+
+🧠 NLP Used: Sumy (TextRank), datetime for metadata
+
+---
+
+### 🧩 Module 5: Dashboard & Downloadable Reports (7 mins)
+
+* ✅ Built with Flask (single `app.py` file).
+* ✅ Upload `.mp3` → Dashboard fetches matching `.txt` summary.
+* ✅ Dynamically shows:
+
+  * Summary
+  * Action Items
+  * Metadata
+* ✅ Download options (TXT only).
+* ✅ Works with multiple audios: test\_audio.mp3 → `meeting_summary.txt`, test1\_audio.mp3 → `summary_out1.txt`.
+
+🌐 Tech Used: Flask, HTML templating
+📁 Folder: `module5_dashboard/uploads`, links to `module4_summary_generation`
+
+---
+
+### 📦 Extra Features & Flexibility (2 mins)
+
+* 📂 Modular code organization.
+* 🔄 Can scale to add GPT-based summarization or Streamlit UI.
+* 🔐 Dashboard can be enhanced with login (Flask-Login).
+* ⛅ Future scope: CI/CD, S3 lifecycle rules, sentiment analysis.
+
+---
+
+### 💬 Final Wrap-Up (30 sec)
+
+* This project automates the end-to-end pipeline: audio → transcript → clean text → summary → downloadable report → analytics.
+* It mimics a real-world enterprise system built using cloud-native services and Python scripting.
+
+---
+
+End-to-end modular flow from uploading audio ➝ transcribing ➝ processing ➝ summarization ➝ dashboard + download
+
+Clearly maps to your project modules:
+
+Module 1 → Audio Upload & S3
+
+Module 2 → AWS Transcribe
+
+Module 3 → Transcript Post-Processing
+
+Module 4 → Summary Generation
+
+Module 5 → Dashboard & Downloadable Reports
+
